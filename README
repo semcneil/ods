@@ -3,11 +3,31 @@ java/ods contains the java sources
 cpp contains the C++ sources (still under development)
 
 To make the books (ods-java.pdf and ods-cpp.pdf and ods-python.pdf):
-  mkdir ~/texmf/tex/latex/ods/
-  cp ods-colors.sty ~/texmf/tex/latex/ods/
+  mkdir -p ~/texmf/tex/latex/ods/
+  cp latex/ods-colors.sty ~/texmf/tex/latex/ods/
   cd latex ; make
 This will require a decent installation of pdflatex, perl, ipe, inkscape,
 gnuplot, and pdftk.  
+
+At the very least this was required:
+```bash
+apt install texlive-latex-recommended
+apt install texlive-latex-extra
+apt install graphviz
+apt install inkscape
+apt install gnuplot
+apt install ipetoipe
+apt install ipe
+apt install pdftk-java
+```
+
+As of 2021 January 31, I am stuck at ods/latex/figs-python/list.xml being empty
+and throwing the following error:
+```
+ipetoipe -pdf list.xml
+Could not read Ipe file 'list.xml'
+The document was not created by Ipe.
+```
 
 If you have problems with tikz figures, consult the solution here: 
 http://goo.gl/hCvlyp
